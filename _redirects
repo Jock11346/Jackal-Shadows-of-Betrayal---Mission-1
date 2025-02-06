@@ -1,1 +1,12 @@
+# Redirect old pages to new pages
+/old-page  /new-page  301
+/blog/*    /news/*    200
+
+# Redirect root to a specific page
+/home      /          301
+
+# Catch-all rule for 404 pages
+/*         /index.html  404
+
+/* /index.html 200
 
