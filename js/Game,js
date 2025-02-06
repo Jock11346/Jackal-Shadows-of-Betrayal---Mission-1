@@ -1,3 +1,150 @@
+// Constants for asset paths
+const ASSETS = {
+    BACKGROUND: 'assets/images/background.jpg',
+    FACILITY: 'assets/images/facility.jpg',
+    JACKAL: 'assets/images/jackal.png',
+    GUARD: 'assets/images/guard.png',
+    INFORMANT: 'assets/images/informant.png',
+    LOGO: 'assets/images/logo.png',
+    CONTAINER: 'assets/images/crate.png', // Updated asset path
+    ASSASSIN: 'assets/audio/Assassin.mp3',
+    DAWN_OF_THE_APOCAL: 'assets/audio/dawn_of_the_apocal.mp3',
+    SILENCED_GUNSHOT: 'assets/audio/silencedGunshot.mp3',
+    LOUD_GUNSHOT: 'assets/audio/loudGunshot.mp3',
+    DISTANT_GUNSHOT: 'assets/audio/distantGunshot.mp3',
+    FOOTSTEPS: 'assets/audio/footsteps.mp3',
+    ALERT: 'assets/audio/alert.mp3',
+    CLICK: 'assets/audio/click.mp3'
+};
+
+class MainMenuScene extends Phaser.Scene {
+    constructor() {
+        super({ key: 'MainMenuScene' });
+    }
+
+    preload() {
+        // Load menu background
+        this.load.image('menuBackground', ASSETS.BACKGROUND);
+    }
+
+    create() {
+        // Add menu background
+        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'menuBackground');
+
+        // Add title text
+        this.add.text(this.cameras.main.centerX, 100, 'Jackal: Shadows of Betrayal', {
+            fontSize: '48px',
+            fill: '#fff',
+            fontStyle: 'bold'
+        }).setOrigin(0.5);
+
+        // Add start button
+        const startButton = this.add.text(this.cameras.main.centerX, 300, 'Start Game', {
+            fontSize: '32px',
+            fill: '#00ff00'
+        }).setOrigin(0.5).setInteractive();
+
+        // Add hover effect for start button
+        startButton.on('pointerover', () => startButton.setColor('#00cc00'));
+        startButton.on('pointerout', () => startButton.setColor('#00ff00'));
+        startButton.on('pointerdown', () => this.scene.start('Mission1Scene'));
+
+        // Add quit button
+        const quitButton = this.add.text(this.cameras.main.centerX, 400, 'Quit', {
+            fontSize: '32px',
+            fill: '#ff0000'
+        }).setOrigin(0.5).setInteractive();
+
+        // Add hover effect for quit button
+        quitButton.on('pointerover', () => quitButton.setColor('#cc0000'));
+        quitButton.on('pointerout', () => quitButton.setColor('#ff0000'));
+        quitButton.on('pointerdown', () => {
+            console.log('Quit Game');
+            // Close the game (works in some environments)
+            if (confirm('Are you sure you want to quit?')) {
+                window.close();
+            }
+        });
+    }
+}
+
+class Mission1Scene extends Phaser.Scene {
+    constructor() {
+        super({ key: 'Mission1Scene' });
+    }
+
+    preload() {
+        // Load assets
+        this.load.image('background', ASSETS.BACKGROUND);
+        this.load.image('facility', ASSETS.FACILITY);
+        this.load.image('jackal', ASSETS.JACKAL);
+        this.load.image('guard', ASSETS.GUARD);
+        this.load.image('informant', ASSETS.INFORMANT);
+        this.load.image('logo', ASSETS.LOGO);
+        this.load.image('container', ASSETS.CONTAINER); // Updated asset
+        this.load.audio('assassin', ASSETS.ASSASSIN);
+        this.load.audio('dawnOfTheApocal', ASSETS.DAWN_OF_THE_APOCAL);
+        this.load.audio('silencedGunshot', ASSETS.SILENCED_GUNSHOT);
+        this.load.audio('loudGunshot', ASSETS.LOUD_GUNSHOT);
+        this.load.audio('distantGunshot', ASSETS.DISTANT_GUNSHOT);
+        this.load.audio('footsteps', ASSETS.FOOTSTEPS);
+        this.load.audio('alert', ASSETS.ALERT);
+        this.load.audio('click', ASSETS.CLICK);
+    }
+
+    create() {
+        // Add background
+        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'background');
+
+        // Add logo to the top of the screen
+        const logo = this.add.image(this.cameras.main.centerX, 50, 'logo').setOrigin(0.5, 0);
+        logo.setScale(0.5); // Adjust scale as needed
+
+        // Add informant tied to a chair
+        const informant = this.add.image(400, 300, 'informant').setScale(0.5);
+
+        // Play background music
+        this.sound.play('assassin', { loop: true });
+
+        // Add dialogue
+        this.add.text(100, 100, 'Jackal: "I trusted you, and now you’ve betrayed me."', { fontSize: '24px', fill: '#fff' });
+        this.add.text(100, 150, 'Informant: "Titan forced me to do this. I had no choice!"', { fontSize: '24px', fill: '#fff' });
+
+        // Add mission objective
+        this.add.text(16, 16, 'Mission Objective:', { fontSize: '24px', fill: '#fff' })
+            .setBackgroundColor('#000000')
+            .setPadding(10);
+        this.add.text(16, 50, 'Decide the fate of the informant.', { fontSize: '20px', fill: '#fff' })
+            .setBackgroundColor('#000000')
+            .setPadding(10);
+
+        // Add interactive buttons with hover effects
+        const spareButton = this.add.text(100, 400, 'Spare the Informant', { fontSize: '32px', fill: '#00ff00' })
+            .setInteractive()
+            .on('pointerdown', () => this.startStealthScene(true))
+            .on('pointerover', () => spareButton.setColor('#00cc00'))
+            .on('pointerout', () => spareButton.setColor('#00ff00'));
+
+        const killButton = this.add.text(100, 450, 'Kill the Informant', { fontSize: '32px', fill: '#ff0000' })
+            .setInteractive()
+            .on('pointerdown', () => {
+                this.sound.play('loudGunshot'); // Play loud gunshot sound
+                this.startStealthScene(false);
+            })
+            .on('pointerover', () => killButton.setColor('#cc0000'))
+            .on('pointerout', () => killButton.setColor('#ff0000'));
+    }
+
+    startStealthScene(spared) {
+        // Fade out and transition to StealthScene
+        this.cameras.main.fadeOut(1000, 0, 0, 0, (camera, progress) => {
+            if (progress === 1) {
+                this.scene.start('StealthScene', { informantSpared: spared });
+            }
+        });
+    }
+}
+
 class StealthScene extends Phaser.Scene {
     constructor() {
         super({ key: 'StealthScene' });
@@ -27,10 +174,10 @@ class StealthScene extends Phaser.Scene {
             this.createGuardPatrol(guard, guard.x, guard.x + Phaser.Math.Between(100, 300));
         }
 
-        // Add cover objects
+        // Add cover objects (now using crate.png)
         this.cover = this.physics.add.staticGroup();
-        this.cover.create(300, 300, 'crate').setScale(0.5).refreshBody();
-        this.cover.create(500, 400, 'crate').setScale(0.5).refreshBody();
+        this.cover.create(300, 300, 'container').setScale(0.5).refreshBody();
+        this.cover.create(500, 400, 'container').setScale(0.5).refreshBody();
 
         // Add collider between player and cover
         this.physics.add.collider(this.player, this.cover);
@@ -132,3 +279,58 @@ class StealthScene extends Phaser.Scene {
         }
     }
 }
+
+class QTEScene extends Phaser.Scene {
+    constructor() {
+        super({ key: 'QTEScene' });
+    }
+
+    create() {
+        // Add QTE prompt
+        this.add.text(this.cameras.main.centerX, this.cameras.main.centerY - 50, 'Press SPACE at the right time!', {
+            fontSize: '32px',
+            fill: '#fff',
+            fontStyle: 'bold'
+        }).setOrigin(0.5);
+
+        // Add moving cursor
+        this.cursor = this.add.rectangle(200, 300, 20, 20, 0xff0000);
+        this.tweens.add({
+            targets: this.cursor,
+            x: 600,
+            duration: 1500,
+            yoyo: true,
+            repeat: -1
+        });
+
+        // Listen for SPACE key
+        this.input.keyboard.on('keydown-SPACE', () => {
+            if (this.cursor.x > 350 && this.cursor.x < 450) { // Safe zone
+                this.cameras.main.flash(0x00ff00, 200); // Green flash for success
+                this.scene.start('Mission1Scene'); // Success
+            } else {
+                this.cameras.main.flash(0xff0000, 200); // Red flash for failure
+                this.scene.start('StealthScene'); // Fail, back to stealth
+            }
+        });
+    }
+}
+
+// Phaser game configuration
+const config = {
+    type: Phaser.AUTO,
+    width: 800,
+    height: 600,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 0 }, // No gravity
+            debug: false // Set to true to see collision boxes
+        }
+    },
+    scene: [MainMenuScene, Mission1Scene, StealthScene, QTEScene], // Updated scene list
+    fps: { target: 30 }
+};
+
+// Initialize the game
+const game = new Phaser.Game(config);
