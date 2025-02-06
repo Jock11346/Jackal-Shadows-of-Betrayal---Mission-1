@@ -40,6 +40,7 @@ Coming Soon
 💎 Weapon Upgrades & Customisation – Unlock new silenced weapons, attachments, and tactical gear.
 
 Notes & Credits
+
 Developed using Phaser.js for an immersive 2D experience.
 Game assets and soundtrack tailored for an intense espionage thriller.
 Created by JQ Studios.
