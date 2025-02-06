@@ -1,5 +1,7 @@
 Jackal: Shadows of Betrayal – Mission 1
+
 A High-Stakes Infiltration  A mission from Jackal: The Rise of Raven & Titan
+
 Mission Overview
 🎯 Infiltrate. Confront. Decide.
 Betrayed by an informant, Jackal must infiltrate a high-security facility, uncover the truth, and make a life-or-death decision. Stay undetected, outmanoeuvre the guards, and escape with your mission complete.
