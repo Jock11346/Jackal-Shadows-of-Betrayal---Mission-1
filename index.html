@@ -3,28 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jackal: Shadows of Betrayal - Mission 1</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <title>Stealth Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="game-container" tabindex="0">
-        <!-- Loading spinner -->
-        <div id="loading-spinner" class="loading-spinner">
-            <div class="spinner"></div>
-            <p>Loading...</p>
-        </div>
-    </div>
-
-    <script src="js/phaser.min.js"></script>
-    <script src="js/Game.js"></script>
-
-    <script>
-        // Hide the spinner when the game starts
-        window.addEventListener('load', () => {
-            document.getElementById('loading-spinner').style.display = 'none';
-            document.getElementById('game-container').focus();
-        });
-    </script>
+    <div id="game-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <script src="Game.js"></script>
 </body>
 </html>
