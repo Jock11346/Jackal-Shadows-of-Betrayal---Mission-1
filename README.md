@@ -1,30 +1,42 @@
-# Jackal Shadows of Betrayal Mission 1 
+Jackal: Shadows of Betrayal – Mission 1
+A High-Stakes Infiltration  A mission from Jackal: The Rise of Raven & Titan
+Mission Overview
+🎯 Infiltrate. Confront. Decide.
+Betrayed by an informant, Jackal must infiltrate a high-security facility, uncover the truth, and make a life-or-death decision. Stay undetected, outmanoeuvre the guards, and escape with your mission complete.
 
-Shadows of Betrayal is the first mission in Jackal: The Rise of Raven & Titan. In this mission, players assume the role of Jackal, a highly skilled mercenary, as he infiltrates a heavily guarded industrial facility to confront an informant who has betrayed him.
+Game Features
+🕵️ Stealth Action: Sneak through enemy patrols, avoid detection, and take down threats silently.
 
-The mission blends stealth mechanics, moral decision-making, and quick-time events (QTEs) to create a tense, cinematic experience where every choice matters.
+⚖️ Moral Choice System: Decide the fate of the informant – spare them for intel or eliminate the traitor.
 
-Key Features
-Stealth-Based Gameplay: Navigate the facility while avoiding patrolling guards.
-Moral Choices: Decide whether to spare or eliminate the informant, impacting future events.
-Dynamic Sound Design: Immerse yourself in the action with ambient music, sound effects, and tension-building cues.
-Quick-Time Events (QTEs): React quickly to survive high-stakes encounters.
+🎭 Cinematic Storytelling: Experience intense dialogue, dynamic choices, and gripping narrative moments.
 
-Gameplay Breakdown
-Infiltration
+💥 Tactical Gameplay: Engage in high-pressure quick-time events and use strategic thinking to survive.
 
-Jackal enters the facility, using stealth to avoid detection.
-Players must move cautiously and time their actions to bypass security.
-The Confrontation
+🔊 Immersive Sound Design: Stealthy footsteps, silenced gunfire, and atmospheric tension build the perfect espionage experience.
 
-Jackal finds the informant tied to a chair.
-The player chooses whether to interrogate, spare, or execute them.
-Escape & Combat Sequences
+How to Play
+▶ Start the Mission: Launch the game in your browser.
 
-If the alarm is triggered, guards are alerted.
-Quick-time events determine whether Jackal successfully escapes or is captured.
+🎯 Objective: Infiltrate the facility, confront the informant, and make your choice.
 
-Controls
-rrow Keys / WASD - Move Jackal
-Spacebar - Interact / Perform QTE Actions
-Mouse Click - Select choices during dialogues
+🎮 Controls:
+
+Move: Arrow Keys / WASD
+Interact: Spacebar
+Sneak Mode: Shift Key
+Fire Weapon: Left Mouse Click
+🏆 Score & Progression: Avoid detection, execute perfect takedowns, and make the best choices to succeed.
+
+Coming Soon
+🔥 Five New Missions – Expanding Jackal’s story with new locations, enemies, and objectives.
+
+🗡️ Advanced Stealth Mechanics & Enemy AI – Smarter guards, tighter security, and new infiltration tools.
+
+💎 Weapon Upgrades & Customisation – Unlock new silenced weapons, attachments, and tactical gear.
+
+Notes & Credits
+Developed using Phaser.js for an immersive 2D experience.
+Game assets and soundtrack tailored for an intense espionage thriller.
+Created by JQ Studios.
+
