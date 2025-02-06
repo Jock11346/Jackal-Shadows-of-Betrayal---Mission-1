@@ -1,12 +1,12 @@
 [build]
-  command = "npm run build" # Change this if using a different build command
-  publish = "dist" # Ensure this matches your build output folder
+  base = "/"
+  publish = "dist"  # Replace with your build output directory
+  functions = "netlify/functions"  # Point to the correct directory
+
+[build.environment]
+  NODE_VERSION = "16"  # Specify the Node.js version
 
 [functions]
   directory = "netlify/functions"
 
-[dev]
-  command = "npm start" # Command for local development (optional)
-  port = 8888
-  targetPort = 3000
 
