@@ -6,7 +6,7 @@ const ASSETS = {
     GUARD: 'assets/images/guard.png',
     INFORMANT: 'assets/images/informant.png',
     LOGO: 'assets/images/logo.png',
-    CONTAINER: 'assets/images/crate.png', // Updated asset path
+    CONTAINER: 'assets/images/container.png', // Updated from crate.png to container.png
     ASSASSIN: 'assets/audio/Assassin.mp3',
     DAWN_OF_THE_APOCAL: 'assets/audio/dawn_of_the_apocal.mp3',
     SILENCED_GUNSHOT: 'assets/audio/silencedGunshot.mp3',
@@ -81,7 +81,7 @@ class Mission1Scene extends Phaser.Scene {
         this.load.image('guard', ASSETS.GUARD);
         this.load.image('informant', ASSETS.INFORMANT);
         this.load.image('logo', ASSETS.LOGO);
-        this.load.image('container', ASSETS.CONTAINER); // Updated asset
+        this.load.image('container', ASSETS.CONTAINER); // Updated from crate.png to container.png
         this.load.audio('assassin', ASSETS.ASSASSIN);
         this.load.audio('dawnOfTheApocal', ASSETS.DAWN_OF_THE_APOCAL);
         this.load.audio('silencedGunshot', ASSETS.SILENCED_GUNSHOT);
@@ -174,7 +174,7 @@ class StealthScene extends Phaser.Scene {
             this.createGuardPatrol(guard, guard.x, guard.x + Phaser.Math.Between(100, 300));
         }
 
-        // Add cover objects (now using crate.png)
+        // Add cover objects (now using container.png)
         this.cover = this.physics.add.staticGroup();
         this.cover.create(300, 300, 'container').setScale(0.5).refreshBody();
         this.cover.create(500, 400, 'container').setScale(0.5).refreshBody();
