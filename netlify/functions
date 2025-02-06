@@ -1,0 +1,11 @@
+exports.handler = async (event) => {
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ message: "Hello, world!" }),
+  };
+};
+export default async (request, context) => {
+  return new Response("Hello, from the edge!", {
+    headers: { "Content-Type": "text/html" },
+  });
+};
