@@ -1,0 +1,4 @@
+[build]
+  base = "/"
+  publish = "dist"  # Replace with your build output directory
+  functions = "netlify/functions"  # Point to the correct directory
