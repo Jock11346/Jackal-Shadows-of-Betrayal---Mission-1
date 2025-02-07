@@ -8,7 +8,10 @@
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
 <body>
-    <div id="game-container" tabindex="0">
+    <div id="game-container" 
+         tabindex="0" 
+         role="application" 
+         aria-label="Jackal: Shadows of Betrayal game screen">
         <!-- Loading spinner -->
         <div id="loading-spinner" class="loading-spinner">
             <div class="spinner"></div>
@@ -16,12 +19,10 @@
         </div>
     </div>
 
-    <!-- Phaser and custom scripts -->
     <script src="js/phaser.min.js"></script>
     <script type="module" src="js/Game.js"></script>
 
     <script>
-        // Hide the spinner when the game starts
         window.addEventListener('load', () => {
             document.getElementById('loading-spinner').style.display = 'none';
             document.getElementById('game-container').focus();
