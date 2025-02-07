@@ -4,17 +4,13 @@ export default class StealthScene extends Phaser.Scene {
     }
 
     preload() {
-        // Load images
-        this.load.image('container', 'assets/images/container.png');
-        this.load.image('jackal', 'assets/images/jackal.png');
-
-        // Load audio
-        this.load.audio('alert', 'assets/audio/alart.mp3');
-        this.load.audio('loudGunshot', 'assets/audio/loudgunshot.mp3');
+        // Load assets for Stealth Scene
+        this.load.image('container', 'assets/images/container.jpg');
+        this.load.image('jackal', 'assets/images/jackal.jpg');
     }
 
     create(data) {
-        // Add background image (if needed)
+        // Add background image
         this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'facilityBackground')
             .setOrigin(0.5, 0.5);
 
@@ -25,11 +21,9 @@ export default class StealthScene extends Phaser.Scene {
         if (data.action === 'spare') {
             this.add.text(16, 50, 'You chose to spare the informant.', 
                 { fontSize: '20px', fill: '#00ff00' });
-            this.sound.play('alert'); // Play alert sound
         } else if (data.action === 'kill') {
             this.add.text(16, 50, 'You chose to kill the informant.', 
                 { fontSize: '20px', fill: '#ff0000' });
-            this.sound.play('loudGunshot'); // Play loud gunshot sound
         }
 
         // Add a button to return to the main menu
