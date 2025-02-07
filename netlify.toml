@@ -1,10 +1,7 @@
-[build]
-  base = "/"
-  publish = "dist"  # Replace with your build output directory
-  functions = "netlify/functions"  # Point to the correct directory
-
-[build.environment]
-  NODE_VERSION = "16"  # Specify the Node.js version
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "application/javascript"
 
 [functions]
   directory = "netlify/functions"
