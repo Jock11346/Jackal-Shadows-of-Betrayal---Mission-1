@@ -1,10 +1,12 @@
+import { createButton } from '../js/ButtonUtils.js';
+
 export default class Mission1Scene extends Phaser.Scene {
     constructor() {
         super({ key: 'Mission1Scene' });
     }
 
     preload() {
-        // Load assets for Mission 1
+        // Load images (all paths are lowercase and match GitHub)
         this.load.image('facilityBackground', 'assets/images/facility.jpg');
         this.load.image('informant', 'assets/images/informant.jpg');
         this.load.image('guard', 'assets/images/guard.jpg');
