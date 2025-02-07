@@ -1,2 +1,7 @@
+[build]
+  base = "/"
+  publish = "."
+  command = "echo 'No build command needed for static site'"
+
 [build.environment]
-  NODE_VERSION = "16"
+  NODE_VERSION = "16" # Use Node.js 16 for compatibility
