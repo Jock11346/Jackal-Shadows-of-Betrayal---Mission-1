@@ -6,7 +6,7 @@ export default class MainMenuScene extends Phaser.Scene {
     }
 
     preload() {
-        // Load assets for the main menu
+        // Load images (all paths are lowercase and match GitHub)
         this.load.image('menuBackground', 'assets/images/background.jpg');
         this.load.image('logo', 'assets/images/logo.jpg');
     }
@@ -33,7 +33,7 @@ export default class MainMenuScene extends Phaser.Scene {
 
         createButton(this, 'Quit', this.cameras.main.centerX, 400, '#ff0000', () => {
             if (confirm('Are you sure you want to quit?')) {
-                window.location.href = 'https://example.com'; // Redirect to another page
+                window.location.href = 'https://example.com';
             }
         });
     }
