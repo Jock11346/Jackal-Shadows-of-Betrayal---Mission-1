@@ -1,4 +1,4 @@
-import { createButton } from '../js/ButtonUtils.js';
+import { createButton } from './js/ButtonUtils.js';
 
 export default class MainMenuScene extends Phaser.Scene {
     constructor() {
@@ -6,7 +6,7 @@ export default class MainMenuScene extends Phaser.Scene {
     }
 
     preload() {
-        // Load images (all paths are lowercase and match GitHub)
+        // Load assets for the main menu
         this.load.image('menuBackground', 'assets/images/background.jpg');
         this.load.image('logo', 'assets/images/logo.jpg');
     }
