@@ -1,17 +1,19 @@
-import ButtonUtils from '../utils/ButtonUtils.js';
-
 export default class MainMenuScene extends Phaser.Scene {
     constructor() {
         super({ key: 'MainMenuScene' });
     }
 
-    create() {
-        // Background
-        this.add.image(0, 0, 'mainmenu_bg').setOrigin(0);
+    preload() {
+        this.load.image('menuBackground', 'assets/images/menu.jpg');
+    }
 
-        // Buttons
-        ButtonUtils.createButton(this, 640, 300, 'Start Mission', () => this.scene.start('Mission1Scene'));
-        ButtonUtils.createButton(this, 640, 400, 'Stealth Training', () => this.scene.start('StealthScene'));
-        ButtonUtils.createButton(this, 640, 500, 'Options', () => console.log('Options clicked'));
+    create() {
+        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'menuBackground')
+            .setOrigin(0.5, 0.5);
+
+        this.add.text(300, 100, 'Jackal: Shadows of Betrayal', { fontSize: '32px', fill: '#fff' });
+
+        createButton(this, 'Start Game', 300, 300, '#00ff00', () => this.scene.start('Mission1Scene'));
+        createButton(this, 'Quit', 300, 400, '#ff0000', () => window.close());
     }
 }
