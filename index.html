@@ -3,49 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jackal: Shadows of Betrayal – Mission 1. A tactical sniper and stealth game.">
-    <title>Jackal: Shadows of Betrayal – Mission 1</title>
+    <title>Jackal: Shadows of Betrayal - Mission 1</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
 <body>
-    <!-- Skip link for accessibility -->
-    <a href="#game-container" class="skip-link">Skip to game content</a>
-
-    <div id="game-container" 
-         tabindex="0" 
-         role="application" 
-         aria-label="Jackal: Shadows of Betrayal game screen">
+    <div id="game-container" tabindex="0">
         <!-- Loading spinner -->
         <div id="loading-spinner" class="loading-spinner">
             <div class="spinner"></div>
             <p>Loading...</p>
         </div>
-
-        <!-- Error message container -->
-        <div id="error-message" class="error-message" style="display: none;"></div>
     </div>
 
     <!-- Phaser and custom scripts -->
     <script src="js/phaser.min.js"></script>
+    <script src="js/ButtonUtils.js"></script>
     <script type="module" src="js/Game.js"></script>
 
     <script>
+        // Hide the spinner when the game starts
         window.addEventListener('load', () => {
-            const spinner = document.getElementById('loading-spinner');
-            const errorMessage = document.getElementById('error-message');
-
-            // Timeout for demonstration (replace with actual game-loaded event)
-            setTimeout(() => {
-                if (window.gameLoaded) {
-                    spinner.style.display = 'none';
-                    document.getElementById('game-container').focus();
-                } else {
-                    spinner.style.display = 'none';
-                    errorMessage.textContent = 'Failed to load game assets. Please refresh.';
-                    errorMessage.style.display = 'block';
-                }
-            }, 3000);
+            document.getElementById('loading-spinner').style.display = 'none';
+            document.getElementById('game-container').focus();
         });
     </script>
 </body>
