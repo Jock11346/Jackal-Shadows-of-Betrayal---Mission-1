@@ -1,40 +1,17 @@
-import { createButton } from './js/ButtonUtils.js';
+import ButtonUtils from '../utils/ButtonUtils.js';
 
 export default class MainMenuScene extends Phaser.Scene {
     constructor() {
         super({ key: 'MainMenuScene' });
     }
 
-    preload() {
-        // Load assets for the main menu
-        this.load.image('menuBackground', 'assets/images/background.jpg');
-        this.load.image('logo', 'assets/images/logo.jpg');
-    }
-
     create() {
-        // Add background image
-        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'menuBackground')
-            .setOrigin(0.5, 0.5);
+        // Background
+        this.add.image(0, 0, 'mainmenu_bg').setOrigin(0);
 
-        // Add game title
-        this.add.text(this.cameras.main.centerX, 100, 'Jackal: Shadows of Betrayal – Mission 1', 
-            { fontSize: '32px', fill: '#fff', fontFamily: 'Arial', fontWeight: 'bold' })
-            .setOrigin(0.5, 0.5);
-
-        // Add logo
-        this.add.image(this.cameras.main.centerX, 200, 'logo')
-            .setOrigin(0.5, 0.5)
-            .setScale(0.5);
-
-        // Create buttons
-        createButton(this, 'Start Game', this.cameras.main.centerX, 300, '#00ff00', () => {
-            this.scene.start('Mission1Scene');
-        });
-
-        createButton(this, 'Quit', this.cameras.main.centerX, 400, '#ff0000', () => {
-            if (confirm('Are you sure you want to quit?')) {
-                window.location.href = 'https://example.com';
-            }
-        });
+        // Buttons
+        ButtonUtils.createButton(this, 640, 300, 'Start Mission', () => this.scene.start('Mission1Scene'));
+        ButtonUtils.createButton(this, 640, 400, 'Stealth Training', () => this.scene.start('StealthScene'));
+        ButtonUtils.createButton(this, 640, 500, 'Options', () => console.log('Options clicked'));
     }
 }
