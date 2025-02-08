@@ -1,4 +1,4 @@
-import { createButton } from '../js/ButtonUtils.js';
+import { createButton } from './js/ButtonUtils.js';
 
 export default class MainMenuScene extends Phaser.Scene {
     constructor() {
@@ -8,7 +8,7 @@ export default class MainMenuScene extends Phaser.Scene {
     preload() {
         // Load assets for the main menu
         this.load.image('menuBackground', 'assets/images/background.jpg');
-        this.load.image('logo', 'assets/images/logo.png');
+        this.load.image('logo', 'assets/images/logo.jpg');
     }
 
     create() {
@@ -21,7 +21,7 @@ export default class MainMenuScene extends Phaser.Scene {
             { fontSize: '32px', fill: '#fff', fontFamily: 'Arial', fontWeight: 'bold' })
             .setOrigin(0.5, 0.5);
 
-        // Add logo (if available)
+        // Add logo
         this.add.image(this.cameras.main.centerX, 200, 'logo')
             .setOrigin(0.5, 0.5)
             .setScale(0.5);
@@ -33,7 +33,7 @@ export default class MainMenuScene extends Phaser.Scene {
 
         createButton(this, 'Quit', this.cameras.main.centerX, 400, '#ff0000', () => {
             if (confirm('Are you sure you want to quit?')) {
-                window.location.href = 'https://example.com'; // Redirect to another page
+                window.location.href = 'https://example.com';
             }
         });
     }
