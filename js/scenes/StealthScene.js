@@ -4,19 +4,18 @@ export default class StealthScene extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('stealth_bg', 'assets/images/environments/stealth_bg.webp');
+        // Load assets for the stealth scene
+        this.load.image('stealthBackground', 'assets/images/stealth.jpg');
     }
 
-    create() {
-        // Stealth mechanics setup
-        this.add.image(0, 0, 'stealth_bg').setOrigin(0);
-        this.player = this.physics.add.sprite(200, 500, 'raven');
+    create(data) {
+        // Access data passed from Mission1Scene
+        console.log(data.action); // 'spare' or 'kill'
 
-        // Visibility detection
-        this.lightMask = this.make.graphics().fillStyle(0x000000, 0.7).fillRect(0, 0, 1280, 720);
-    }
+        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'stealthBackground')
+            .setOrigin(0.5, 0.5);
 
-    update() {
-        // Stealth movement logic
+        this.add.text(16, 16, 'Stealth Mode: Avoid detection', 
+            { fontSize: '20px', fill: '#fff' });
     }
 }
