@@ -1,37 +1,33 @@
-import { createButton } from '../js/ButtonUtils.js';
-
 export default class Mission1Scene extends Phaser.Scene {
     constructor() {
         super({ key: 'Mission1Scene' });
     }
 
     preload() {
-        // Load images (all paths are lowercase and match GitHub)
-        this.load.image('facilityBackground', 'assets/images/facility.jpg');
-        this.load.image('informant', 'assets/images/informant.jpg');
-        this.load.image('guard', 'assets/images/guard.jpg');
+        // Load mission-specific assets
+        this.load.image('mission1_bg', 'assets/images/environments/mission1_bg.webp');
+        this.load.audio('gunshot', ['assets/audio/gunshot.mp3', 'assets/audio/gunshot.ogg']);
     }
 
     create() {
-        // Add background image
-        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'facilityBackground')
-            .setOrigin(0.5, 0.5);
+        // Setup world
+        this.add.image(0, 0, 'mission1_bg').setOrigin(0);
+        this.player = this.physics.add.sprite(100, 500, 'jackal');
 
-        // Add informant and guard sprites
-        this.add.image(200, 400, 'informant').setScale(0.5);
-        this.add.image(600, 400, 'guard').setScale(0.5);
+        // Input
+        this.cursors = this.input.keyboard.createCursorKeys();
+        this.input.on('pointerdown', () => this.fireShot());
+    }
 
-        // Display mission objective
-        this.add.text(16, 16, "Mission Objective: Decide the informant's fate", 
-            { fontSize: '20px', fill: '#fff' });
+    update() {
+        // Player movement
+        if (this.cursors.left.isDown) this.player.setVelocityX(-160);
+        else if (this.cursors.right.isDown) this.player.setVelocityX(160);
+        else this.player.setVelocityX(0);
+    }
 
-        // Create buttons for player choices
-        createButton(this, 'Spare Informant', 100, 400, '#00ff00', () => {
-            this.scene.start('StealthScene', { action: 'spare' });
-        });
-
-        createButton(this, 'Kill Informant', 100, 450, '#ff0000', () => {
-            this.scene.start('StealthScene', { action: 'kill' });
-        });
+    fireShot() {
+        this.sound.play('gunshot');
+        // Add bullet logic here
     }
 }
