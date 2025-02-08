@@ -1,10 +1,22 @@
-export function createButton(scene, text, x, y, color, callback, hoverColor = '#ff0', fontSize = '24px') {
-    const button = scene.add.text(x, y, text, { fontSize, fill: color })
-        .setOrigin(0.5, 0.5)
-        .setInteractive()
-        .on('pointerdown', callback)
-        .on('pointerover', () => button.setStyle({ fill: hoverColor }))
-        .on('pointerout', () => button.setStyle({ fill: color }));
+export default class ButtonUtils {
+    static createButton(scene, x, y, text, onClick) {
+        const btn = scene.add.text(x, y, text, {
+            font: '24px Arial',
+            fill: '#ffffff',
+            backgroundColor: '#333333',
+            padding: { x: 20, y: 10 },
+            borderRadius: 5
+        })
+        .setOrigin(0.5)
+        .setInteractive({ useHandCursor: true })
+        .on('pointerover', () => btn.setAlpha(0.8))
+        .on('pointerout', () => btn.setAlpha(1))
+        .on('pointerdown', onClick);
 
-    return button;
+        // Accessibility
+        btn.setAttribute('role', 'button');
+        btn.setAttribute('aria-label', text);
+        
+        return btn;
+    }
 }
