@@ -4,30 +4,17 @@ export default class Mission1Scene extends Phaser.Scene {
     }
 
     preload() {
-        // Load mission-specific assets
-        this.load.image('mission1_bg', 'assets/images/environments/mission1_bg.webp');
-        this.load.audio('gunshot', ['assets/audio/gunshot.mp3', 'assets/audio/gunshot.ogg']);
+        this.load.image('facilityBackground', 'assets/images/facility.jpg');
     }
 
     create() {
-        // Setup world
-        this.add.image(0, 0, 'mission1_bg').setOrigin(0);
-        this.player = this.physics.add.sprite(100, 500, 'jackal');
+        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'facilityBackground')
+            .setOrigin(0.5, 0.5);
 
-        // Input
-        this.cursors = this.input.keyboard.createCursorKeys();
-        this.input.on('pointerdown', () => this.fireShot());
-    }
+        this.add.text(16, 16, "Mission Objective: Decide the informant's fate", 
+            { fontSize: '20px', fill: '#fff' });
 
-    update() {
-        // Player movement
-        if (this.cursors.left.isDown) this.player.setVelocityX(-160);
-        else if (this.cursors.right.isDown) this.player.setVelocityX(160);
-        else this.player.setVelocityX(0);
-    }
-
-    fireShot() {
-        this.sound.play('gunshot');
-        // Add bullet logic here
+        createButton(this, 'Spare Informant', 100, 400, '#00ff00', () => this.scene.start('StealthScene'));
+        createButton(this, 'Kill Informant', 100, 450, '#ff0000', () => this.scene.start('StealthScene'));
     }
 }
