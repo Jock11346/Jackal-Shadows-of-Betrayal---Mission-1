@@ -4,18 +4,37 @@ export default class StealthScene extends Phaser.Scene {
     }
 
     preload() {
-        // Load assets for the stealth scene
-        this.load.image('stealthBackground', 'assets/images/stealth.jpg');
+        // Load images
+        this.load.image('container', 'assets/images/container.png');
+        this.load.image('jackal', 'assets/images/jackal.png');
+
+        // Load audio
+        this.load.audio('alert', 'assets/audio/alart.mp3');
+        this.load.audio('loudGunshot', 'assets/audio/loudgunshot.mp3');
     }
 
     create(data) {
-        // Access data passed from Mission1Scene
-        console.log(data.action); // 'spare' or 'kill'
-
-        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'stealthBackground')
+        // Add background image (if needed)
+        this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'facilityBackground')
             .setOrigin(0.5, 0.5);
 
-        this.add.text(16, 16, 'Stealth Mode: Avoid detection', 
-            { fontSize: '20px', fill: '#fff' });
+        // Add player sprite
+        const player = this.add.image(100, 400, 'jackal').setScale(0.5);
+
+        // Handle player choice from Mission1Scene
+        if (data.action === 'spare') {
+            this.add.text(16, 50, 'You chose to spare the informant.', 
+                { fontSize: '20px', fill: '#00ff00' });
+            this.sound.play('alert'); // Play alert sound
+        } else if (data.action === 'kill') {
+            this.add.text(16, 50, 'You chose to kill the informant.', 
+                { fontSize: '20px', fill: '#ff0000' });
+            this.sound.play('loudGunshot'); // Play loud gunshot sound
+        }
+
+        // Add a button to return to the main menu
+        createButton(this, 'Return to Main Menu', 300, 500, '#ffffff', () => {
+            this.scene.start('MainMenuScene');
+        });
     }
 }
