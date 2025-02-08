@@ -19,10 +19,12 @@
         </div>
     </div>
 
+    <!-- Phaser and custom scripts -->
     <script src="js/phaser.min.js"></script>
     <script type="module" src="js/Game.js"></script>
 
     <script>
+        // Hide the spinner when the game starts
         window.addEventListener('load', () => {
             document.getElementById('loading-spinner').style.display = 'none';
             document.getElementById('game-container').focus();
