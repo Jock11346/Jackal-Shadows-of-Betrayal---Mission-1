@@ -1,104 +1,36 @@
-/* General Styles */
 body {
-    margin: 0;
-    padding: 0;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial, sans-serif; /* Added a default font */
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  font-family: Arial, sans-serif;
 }
 
-/* Game Container */
 #game-container {
-    position: relative;
-    width: 800px;
-    height: 600px;
-    background-color: #000;
-    outline: none;
-    overflow: hidden; /* Prevent content from overflowing */
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
 }
 
-#game-container:focus {
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Custom focus indicator */
-}
-
-/* Loading Spinner */
 .loading-spinner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    z-index: 10; /* Ensure it's above other elements */
-}
-
-.loading-spinner p {
-    margin-top: 10px;
-    font-size: 18px;
-    font-family: Arial, sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .spinner {
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid #fff;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    will-change: transform; /* Optimize animation performance */
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #555;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Responsive Design */
-@media (max-width: 800px) {
-    #game-container {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 800 / 600; /* Maintain aspect ratio */
-    }
-}
-
-/* Fallback for Older Browsers */
-@supports not (aspect-ratio: 800 / 600) {
-    #game-container {
-        position: relative;
-        width: 100%;
-        padding-top: 75%; /* 600 / 800 = 0.75 */
-        height: 0;
-    }
-}
-
-/* Button Styles (Optional) */
-.button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 18px;
-    color: #fff;
-    background-color: #333;
-    border: 2px solid #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.button:hover {
-    background-color: #555;
-}
-
-.button:active {
-    background-color: #777;
-}
-
-/* Text Styles (Optional) */
-.text {
-    font-size: 24px;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
