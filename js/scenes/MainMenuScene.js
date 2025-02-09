@@ -8,7 +8,6 @@ export default class MainMenuScene extends Phaser.Scene {
 
   preload() {
     console.log('MainMenuScene preload started');
-
     // Load assets (paths are relative to index.html)
     this.load.image('menuBackground', 'assets/images/background.jpg');
     this.load.image('logo', 'assets/images/logo.jpg');
