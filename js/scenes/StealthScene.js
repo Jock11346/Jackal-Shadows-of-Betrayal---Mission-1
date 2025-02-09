@@ -12,11 +12,9 @@ export default class StealthScene extends Phaser.Scene {
 
   create() {
     console.log('StealthScene create started');
-    // Display some text to confirm the scene is active
     this.add.text(400, 300, 'Stealth Scene', {
       fontSize: '32px',
-      fill: '#fff',
-      fontFamily: 'Arial, sans-serif'
+      fill: '#fff'
     }).setOrigin(0.5);
   }
 }
