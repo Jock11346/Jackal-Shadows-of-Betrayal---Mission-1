@@ -1,12 +1,22 @@
-const stealthSceneJs = `
-import { createButton } from '../js/ButtonUtils.js';
+import Phaser from 'phaser';
+
 export default class StealthScene extends Phaser.Scene {
-    constructor() {
-        super({ key: 'StealthScene' });
-    }
-    create() {
-        this.add.text(20, 50, 'Stealth Mode Activated', { fontSize: '20px', fill: '#00ff00' });
-        createButton(this, 'Return to Main Menu', 400, 500, '#ffffff', () => { this.scene.start('MainMenuScene'); });
-    }
+  constructor() {
+    super({ key: 'StealthScene' });
+  }
+
+  preload() {
+    console.log('StealthScene preload started');
+    // Load stealth-specific assets here if needed
+  }
+
+  create() {
+    console.log('StealthScene create started');
+    // Display some text to confirm the scene is active
+    this.add.text(400, 300, 'Stealth Scene', {
+      fontSize: '32px',
+      fill: '#fff',
+      fontFamily: 'Arial, sans-serif'
+    }).setOrigin(0.5);
+  }
 }
-`;
