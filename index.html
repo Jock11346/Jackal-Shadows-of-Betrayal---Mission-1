@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jackal: Shadows of Betrayal – Mission 1</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="css/styles.css" />
+  <!-- Note: Use the locally hosted favicon instead of a raw GitHub URL -->
+  <link rel="icon" type="image/webp" href="assets/images/favicon.webp" />
 </head>
 <body>
+  <!-- Game container where the Phaser canvas will be injected -->
   <div id="game-container" tabindex="0" role="application" aria-label="Game screen for Jackal: Shadows of Betrayal – Mission 1">
     <!-- Loading spinner -->
     <div id="loading-spinner" class="loading-spinner">
@@ -16,13 +18,20 @@
     </div>
   </div>
 
+  <!-- 
+    If you embed your game using an iframe, relax the sandbox restrictions by including:
+    sandbox="allow-scripts allow-same-origin"
+    Example:
+    <iframe src="index.html" sandbox="allow-scripts allow-same-origin" width="800" height="600"></iframe>
+    (Otherwise, if you’re not using an iframe, no sandbox is applied.)
+  -->
+
   <!-- Phaser library -->
   <script src="js/phaser.min.js"></script>
   <!-- Main game script -->
   <script type="module" src="js/Game.js"></script>
-
   <script>
-    // Hide the spinner when the game starts
+    // Hide the spinner when the game loads
     window.addEventListener('load', () => {
       document.getElementById('loading-spinner').style.display = 'none';
       document.getElementById('game-container').focus();
