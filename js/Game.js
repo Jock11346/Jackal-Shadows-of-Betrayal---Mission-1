@@ -5,7 +5,7 @@ import StealthScene from '../scenes/StealthScene.js';
 
 const config = {
   type: Phaser.AUTO,
-  parent: 'game-container', // Ensures the canvas is added to this div
+  parent: 'game-container', // Injects the canvas into the #game-container div
   width: 800,
   height: 600,
   scene: [MainMenuScene, Mission1Scene, StealthScene],
@@ -18,8 +18,6 @@ const config = {
   }
 };
 
-// Initialize the game
+// Initialize the Phaser game
 const game = new Phaser.Game(config);
-
-// Debugging: Log game initialization
 console.log('Phaser game initialized');
