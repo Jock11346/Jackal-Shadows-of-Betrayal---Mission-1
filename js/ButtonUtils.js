@@ -5,11 +5,12 @@ export function createButton(scene, text, x, y, color, callback) {
     backgroundColor: color,
     padding: { x: 10, y: 5 },
     align: 'center'
-  }).setOrigin(0.5)
-    .setInteractive({ useHandCursor: true })
-    .on('pointerup', callback)
-    .on('pointerover', () => button.setStyle({ fill: '#ff0' }))
-    .on('pointerout', () => button.setStyle({ fill: '#000' }));
+  })
+  .setOrigin(0.5)
+  .setInteractive({ useHandCursor: true })
+  .on('pointerup', callback)
+  .on('pointerover', () => button.setStyle({ fill: '#ff0' }))
+  .on('pointerout', () => button.setStyle({ fill: '#000' }));
 
   return button;
 }
