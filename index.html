@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jackal: Shadows of Betrayal – Mission 1</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jackal: Shadows of Betrayal – Mission 1</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
 <body>
-    <div id="game-container" 
-         tabindex="0" 
-         role="application" 
-         aria-label="Game screen for Jackal: Shadows of Betrayal – Mission 1">
-        <!-- Loading spinner -->
-        <div id="loading-spinner" class="loading-spinner">
-            <div class="spinner"></div>
-            <p>Loading...</p>
-        </div>
+  <div id="game-container" tabindex="0" role="application" aria-label="Game screen for Jackal: Shadows of Betrayal – Mission 1">
+    <!-- Loading spinner -->
+    <div id="loading-spinner" class="loading-spinner">
+      <div class="spinner"></div>
+      <p>Loading...</p>
     </div>
+  </div>
 
-    <!-- Phaser and custom scripts -->
-    <script src="js/phaser.min.js"></script>
-    <script type="module" src="js/Game.js"></script>
+  <!-- Phaser library -->
+  <script src="js/phaser.min.js"></script>
+  <!-- Main game script -->
+  <script type="module" src="js/Game.js"></script>
 
-    <script>
-        // Hide the spinner when the game starts
-        window.addEventListener('load', () => {
-            document.getElementById('loading-spinner').style.display = 'none';
-            document.getElementById('game-container').focus();
-        });
-    </script>
+  <script>
+    // Hide the spinner when the game starts
+    window.addEventListener('load', () => {
+      document.getElementById('loading-spinner').style.display = 'none';
+      document.getElementById('game-container').focus();
+    });
+  </script>
 </body>
 </html>
